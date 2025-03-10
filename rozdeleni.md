@@ -1,3 +1,3 @@
 # Rozdělení bodů
-Jmeno Prijemni 100
-Jmeno Prijemni 100
+Zdeněk Chudoba 100
+František Poupa 100
