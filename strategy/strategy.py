@@ -112,10 +112,15 @@ class Strategy:
         Označí loď jako potopenou na základě aktuálních zásahů.
 
         Tato metoda sníží počet lodí dané velikosti ve slovníku lodí.
+        Pokud jsou všechny lodě této velikosti potopeny, odstraní je ze seznamu.
         """
         ship_size = len(self.current_hits)  # Velikost lodi je rovna počtu zásahů
         if ship_size in self.ships_dict and self.ships_dict[ship_size] > 0:
             self.ships_dict[ship_size] -= 1  # Snížíme počet lodí dané velikosti
+            print(f"Loď velikosti {ship_size} byla potopena. Zbývající lodě: {self.ships_dict}")  # Ladicí výstup
+            if self.ships_dict[ship_size] == 0:
+                del self.ships_dict[ship_size]  # Odstraníme loď, pokud jsou všechny lodě dané velikosti potopeny
+                print(f"Loď velikosti {ship_size} byla odstraněna ze seznamu. Zbývající lodě: {self.ships_dict}")  # Ladicí výstup
 
     def mark_surrounding_cells(self):
         """
